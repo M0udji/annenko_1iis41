@@ -1,10 +1,10 @@
 #!/bin/bash
 # service_support.sh — проверка статуса ИИС и резервное копирование
-# Использование: ./service_support.sh [status|backup]
+# Использование: ./service_support.sh [status|backup|logs]
 
 # --- Проверка: передан ли хотя бы один аргумент ---
 if [ -z "$1" ]; then
-echo "Использование: $0 [status|backup]"
+echo "Использование: $0 [status|backup|logs]"
 exit 1
 fi
 
