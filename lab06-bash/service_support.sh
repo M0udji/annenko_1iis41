@@ -27,6 +27,16 @@ echo "Бэкап базы знаний ИИС от $DATA_TAG" > "$BACKUP_FILE"
 echo "Конфигурация успешно сохранена в файл: $BACKUP_FILE"
 echo "====================================="
 
+# --- Режим logs: просмотр логов grafana_monitoring ---
+elif [ "$1" == "logs" ]; then
+    echo "=== Логи контейнера grafana_monitoring ==="
+    if [ "$(docker ps -q -f name=grafana_monitoring)" ]; then
+        docker logs --tail 20 grafana_monitoring
+    else
+        echo "Контейнер grafana_monitoring не запущен."
+    fi
+    echo "========================================="
+
 # --- Неизвестный аргумент ---
 else
 echo "Ошибка: Неизвестная команда '$1'. Используйте 'status' или 'backup'."
